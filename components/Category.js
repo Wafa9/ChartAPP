@@ -26,7 +26,7 @@ const Category = (props) => {
                </View>
              </View>
              <Text 
-             style={{textAlign:'center'}}
+             style={{textAlign:'center',fontFamily:'Montserrat_400Regular', marginTop:5, alignSelf:'center'}}
              >
              {name}</Text>
            </View>

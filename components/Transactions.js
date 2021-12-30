@@ -41,8 +41,8 @@ return(
                  borderRadius:SIZES.radius,
                  }}>
              
-              <Text>{item.type}</Text>
-              <Text>{item.amount}</Text>
+              <Text style={{fontFamily:'Montserrat_100Thin'}}>{item.type}</Text>
+              <Text style={{fontFamily:'Montserrat_100Thin'}}>{item.amount}</Text>
             </View>
           
           </ScrollView>

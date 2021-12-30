@@ -20,7 +20,7 @@ import Transactions from '../components/Transactions';
          }}
          >
          <View style={{flex:1}}>
-          <Text style={{...FONTS.h2}} >Hello , Wafa</Text>
+          <Text style={{...FONTS.h2, fontFamily:'Montserrat_700Bold'}} >Hello , Wafa</Text>
          </View>
          {/* Nonfiction Button */}
      </View>

@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
+import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import 'react-native-gesture-handler';
 import * as Font from 'expo-font';
-import { AppLoading } from 'expo';
+import AppLoading from 'expo-app-loading';
 import Home from './screens/Home';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { AntDesign } from '@expo/vector-icons';
@@ -11,15 +12,49 @@ import { FontAwesome } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Navigation from './components/Navigation';
+// const getFonts = () => Font.loadAsync({
+//     'roboto': require('/home/lamaaldohayan/Desktop/project/financeApp/assets/fonts/Roboto-Black.ttf'),
+//     'Montserrat_100Thin' : require('/home/lamaaldohayan/Desktop/project/financeApp/assets/fonts/Roboto-Black.ttf'),
+//     'Montserrat_400Regular': require('/home/lamaaldohayan/Desktop/project/financeApp/assets/fonts/Roboto-Black.ttf'),
+//     'Montserrat_700Bold':require('/home/lamaaldohayan/Desktop/project/financeApp/assets/fonts/Roboto-Black.ttf')
+//   });
+
+import {
+     useFonts,
+     Montserrat_100Thin,
+     Montserrat_400Regular,
+     Montserrat_700Bold,
+  
+ } from '@expo-google-fonts/montserrat';
 
 
 
 export default function App() {
-  return (
+
+  //const [fontsLooad, setFontsLoad] = useState(false);
+
+   let[fontsLoaded, error] = useFonts({
+   Montserrat_100Thin,
+   Montserrat_400Regular,
+   Montserrat_700Bold,
+   });
+
+    if (!fontsLoaded) {
+     return <AppLoading />;
+   } else {
+     return(
     <NavigationContainer>
-    <Navigation/>
-  </NavigationContainer>
-);
+      <Navigation/>
+    </NavigationContainer>)
+    }
+
+  
+  
+
+  
+
+
+  
 }
 
 

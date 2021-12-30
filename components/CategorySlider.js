@@ -44,8 +44,8 @@ export default function App(){
              >
              <View style={{ padding: SIZES.padding }}>
              <View />
-              <Text>{item.type}</Text>
-              <Text>{item.amount}</Text>
+              <Text style={{fontFamily:'Montserrat_400Regular'}}>{item.type}</Text>
+              <Text style={{fontFamily:'Montserrat_400Regular'}}>{item.amount}</Text>
             </View>
           
           </TouchableOpacity>

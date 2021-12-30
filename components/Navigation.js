@@ -4,6 +4,7 @@ import {View, Text, Image, StyleSheet, Button} from "react-native";
 import Home from "../screens/Home";
 import ProfileScreen from "../screens/Profile";
 import CalendarScreen from "../screens/Calendar";
+import AddScreen from "../screens/Add";
 // import bottom navigation
 import 'react-native-gesture-handler';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -71,13 +72,7 @@ function DashboardScreen() {
     );
   }
   
-  function AddScreen() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Add!</Text>
-      </View>
-    );
-  } 
+  
 
   const styles = StyleSheet.create({
     
