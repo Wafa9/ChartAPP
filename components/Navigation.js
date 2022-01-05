@@ -5,6 +5,7 @@ import Home from "../screens/Home";
 import ProfileScreen from "../screens/Profile";
 import CalendarScreen from "../screens/Calendar";
 import AddScreen from "../screens/Add";
+import Charts from '../screens/Charts'
 // import bottom navigation
 import 'react-native-gesture-handler';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -20,24 +21,27 @@ const Navigation = () => {
 
         <Tab.Navigator screenOptions={{tabBarShowLabel: false}}>
            
-            <Tab.Screen name={"Profile"} component={ProfileScreen} options={{
-              tabBarIcon: ({ focused }) =>(
-                <View style={{position: 'absolute',top: '50%',}}>
-                  <AntDesign name="user" size={24} color={focused? 'black' : 'gray'}/>
-                </View> ), }}></Tab.Screen>
-      
-      
-            <Tab.Screen name={"Home"} component={Home} options={{
+             <Tab.Screen name={"Home"} component={Home} options={{
               tabBarIcon: ({ focused }) =>(
                 <View style={{position: 'absolute',top: '50%',}}>
                   <AntDesign name="home" size={24} color={focused? 'black' : 'gray'} />
                 </View>),}}></Tab.Screen>
+
+             <Tab.Screen name={"Charts"} component={Charts} options={{
+              tabBarIcon: ({ focused }) =>(
+                <View style={{position: 'absolute',top: '50%', }}>
+                  <AntDesign name="barschart" size={24} color={focused? 'black' : 'gray'} />
+                </View>
+              ),
+            }}></Tab.Screen>
       
+      
+          
             <Tab.Screen name={"Add"} component={AddScreen} options={{
               tabBarIcon: ({ focused }) =>(
                 <TouchableOpacity>
                 <View style={styles.plusbutton}>
-                 <AntDesign name="plus" size={50} color={focused? 'gray' : 'white'} />
+                 <AntDesign name="plus" size={24} color={focused? 'gray' : 'white'} />
                 </View>
                 </TouchableOpacity>
               ),
@@ -51,13 +55,12 @@ const Navigation = () => {
               ),
             }}></Tab.Screen>
       
-            <Tab.Screen name={"Dashboard"} component={DashboardScreen} options={{
+          
+             <Tab.Screen name={"Profile"} component={ProfileScreen} options={{
               tabBarIcon: ({ focused }) =>(
-                <View style={{position: 'absolute',top: '50%', }}>
-                  <AntDesign name="barschart" size={24} color={focused? 'black' : 'gray'} />
-                </View>
-              ),
-            }}></Tab.Screen>
+                <View style={{position: 'absolute',top: '50%',}}>
+                  <AntDesign name="user" size={24} color={focused? 'black' : 'gray'}/>
+                </View> ), }}></Tab.Screen>
           </Tab.Navigator>
 
     );
@@ -77,8 +80,8 @@ function DashboardScreen() {
   const styles = StyleSheet.create({
     
     plusbutton:{
-        width: 60,
-        height: 60,
+        width: 40,
+        height: 40,
         backgroundColor: '#68ab9f',
         borderRadius:60/2,
         justifyContent: 'center',

@@ -6,6 +6,7 @@ import Category from '../components/Category.js';
 import CategorySlider from '../components/CategorySlider';
 import Transactions from '../components/Transactions';
 
+
  const Home = () => {
      function renderHeader(){
          return(
@@ -39,13 +40,14 @@ import Transactions from '../components/Transactions';
 
             {/* Content */}
            <View style={{height:130 , marginTop:SIZES.margin}}>
+             
          <ScrollView 
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           >
-            <Category name='Balance' title = 'money-check-alt'style={ COLORS.pink} />
-            <Category name='Saving' title = 'donate' style={COLORS.green} />
-            <Category name='Income' title = 'money-bill-wave'style={ COLORS.brown } />
+            <Category name='Balance' title = 'money-check-alt'style={ COLORS.brown} />
+            <Category name='Saving' title = 'donate' style={COLORS.pink} />
+            <Category name='Income' title = 'money-bill-wave'style={ COLORS.green } />
             <Category name='Loans' title = 'warehouse'style={ COLORS.gray}/>
             <Category name='Wishlist' title ='star' style={ COLORS.pink}/>
             

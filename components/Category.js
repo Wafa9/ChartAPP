@@ -22,11 +22,11 @@ const Category = (props) => {
 
               <View />
                <View style={{alignSelf:'center',marginTop:18}}>
-               <FontAwesome5 name={props.title} size={24} color="white" />
+               <FontAwesome5 name={props.title} size={20} color="white" />
                </View>
              </View>
              <Text 
-             style={{textAlign:'center',fontFamily:'Montserrat_400Regular', marginTop:5, alignSelf:'center'}}
+             style={{textAlign:'center',fontFamily:'Montserrat_400Regular',fontSize:16, marginTop:5, alignSelf:'center'}}
              >
              {name}</Text>
            </View>

@@ -20,7 +20,7 @@ return(
         }}>
        <FlatList 
         data={operation}
-        disableVirtualization={true}
+        disableVirtualization={false}
         keyExtractor={item => item.key}
         snapToInterval={90}
         decelerationRate='fast'
@@ -29,14 +29,14 @@ return(
              <ScrollView
               onPress={()=>{}}
               style={{
-              height: 120,
+              height: 100,
               width: 350,
               
               }}
              >
              <View style={{ 
                  padding: 20,
-                 marginTop:SIZES.margin,
+                 marginTop:3,
                  backgroundColor: COLORS.gray10,
                  borderRadius:SIZES.radius,
                  }}>
