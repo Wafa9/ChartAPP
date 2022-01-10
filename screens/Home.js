@@ -1,11 +1,9 @@
 import React from 'react'
-import { View, Text , Image , ScrollView} from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
+import { View, Text , Image , ScrollView,} from 'react-native';
 import { COLORS, SIZES,FONTS} from '../styles/theme.js';
 import Category from '../components/Category.js';
 import CategorySlider from '../components/CategorySlider';
 import Transactions from '../components/Transactions';
-
 
  const Home = () => {
      function renderHeader(){
@@ -55,12 +53,13 @@ import Transactions from '../components/Transactions';
            </View>
           
             <CategorySlider/>
-       
           {/* Transactions */}
-          <View>
+          <ScrollView 
+          showsVerticalScrollIndicator={false} 
+          style={{marginTop: 20}}>
           <Transactions/>
-          </View>
-        
+          </ScrollView>
+          
         </View>
     )
 }

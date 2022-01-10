@@ -12,6 +12,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 //import icons
 import { AntDesign } from '@expo/vector-icons';
+import { COLORS } from "../styles/theme";
 
 
 const Tab = createBottomTabNavigator();
@@ -19,7 +20,7 @@ const Tab = createBottomTabNavigator();
 const Navigation = () => {
     return(
 
-        <Tab.Navigator screenOptions={{tabBarShowLabel: false}}>
+        <Tab.Navigator screenOptions={{tabBarShowLabel: false, headerShown: false}} >
            
              <Tab.Screen name={"Home"} component={Home} options={{
               tabBarIcon: ({ focused }) =>(
@@ -94,6 +95,7 @@ function DashboardScreen() {
       height: 5
     },
       },
+      
   });
 
 export default Navigation;

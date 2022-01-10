@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
-import { Text, View ,StyleSheet ,Image } from 'react-native'
-import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
+import { Text, View ,StyleSheet ,Image,TouchableOpacity } from 'react-native'
 import { COLORS, SIZES,FONTS} from '../styles/theme.js';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 const Category = (props) => {
-      const [backgroundColor, setBackgroundColor] = useState(props.style || null);  //store your prop in state like this
+      const [backgroundColor, setBackgroundColor] = useState(props.style || null);  
       const [name, setName] = useState(props.name || null);
 
         return (
-            <View style={{marginLeft: SIZES.margin ,marginRight: SIZES.margin}}>
+            <TouchableOpacity onPress={()=> {
+    console.log('it wooooooooork foooofi');
+    }
+  } style={{marginLeft: SIZES.margin ,marginRight: SIZES.margin}}>
                 <View>
              <View style={{ 
              height: 60,
@@ -30,7 +32,7 @@ const Category = (props) => {
              >
              {name}</Text>
            </View>
-            </View>
+            </TouchableOpacity>
         )
 }
 

@@ -12,12 +12,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Navigation from './components/Navigation';
-// const getFonts = () => Font.loadAsync({
-//     'roboto': require('/home/lamaaldohayan/Desktop/project/financeApp/assets/fonts/Roboto-Black.ttf'),
-//     'Montserrat_100Thin' : require('/home/lamaaldohayan/Desktop/project/financeApp/assets/fonts/Roboto-Black.ttf'),
-//     'Montserrat_400Regular': require('/home/lamaaldohayan/Desktop/project/financeApp/assets/fonts/Roboto-Black.ttf'),
-//     'Montserrat_700Bold':require('/home/lamaaldohayan/Desktop/project/financeApp/assets/fonts/Roboto-Black.ttf')
-//   });
+
 
 import {
      useFonts,
@@ -43,8 +38,8 @@ export default function App() {
      return <AppLoading />;
    } else {
      return(
-    <NavigationContainer>
-      <Navigation/>
+    <NavigationContainer >
+      <Navigation />
     </NavigationContainer>)
     }
 

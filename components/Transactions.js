@@ -26,14 +26,10 @@ return(
         decelerationRate='fast'
         renderItem={({item}) =>{
          return(
-             <ScrollView
-              onPress={()=>{}}
-              style={{
+             <View style={{
               height: 100,
               width: 350,
-              
-              }}
-             >
+              }}>
              <View style={{ 
                  padding: 20,
                  marginTop:3,
@@ -45,7 +41,7 @@ return(
               <Text style={{fontFamily:'Montserrat_100Thin'}}>{item.amount}</Text>
             </View>
           
-          </ScrollView>
+          </View>
          )}}
        />
       </View>
