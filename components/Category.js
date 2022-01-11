@@ -9,7 +9,7 @@ const Category = (props) => {
 
         return (
             <TouchableOpacity onPress={()=> {
-    console.log('it wooooooooork foooofi');
+    console.log('it dose work');
     }
   } style={{marginLeft: SIZES.margin ,marginRight: SIZES.margin}}>
                 <View>
