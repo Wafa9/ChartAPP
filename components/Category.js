@@ -2,17 +2,21 @@ import React, { useState } from 'react'
 import { Text, View ,StyleSheet ,Image,TouchableOpacity } from 'react-native'
 import { COLORS, SIZES,FONTS} from '../styles/theme.js';
 import { FontAwesome5 } from '@expo/vector-icons';
+import Details from '../screens/Details.js';
+import { useNavigation } from '@react-navigation/native';
+
+
 
 const Category = (props) => {
       const [backgroundColor, setBackgroundColor] = useState(props.style || null);  
       const [name, setName] = useState(props.name || null);
-
+       const navigation = useNavigation();
         return (
             <TouchableOpacity onPress={()=> {
-    console.log('it dose work');
-    }
-  } style={{marginLeft: SIZES.margin ,marginRight: SIZES.margin}}>
-                <View>
+              navigation.navigate("Details",{screen: "Details"})}} 
+              style={{marginLeft: SIZES.margin ,
+              marginRight: SIZES.margin}}>
+          <View>
              <View style={{ 
              height: 60,
              width: 60,

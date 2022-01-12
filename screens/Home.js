@@ -4,7 +4,9 @@ import { COLORS, SIZES,FONTS} from '../styles/theme.js';
 import Category from '../components/Category.js';
 import CategorySlider from '../components/CategorySlider';
 import Transactions from '../components/Transactions';
- const Home = () => {
+
+
+ const Home = ({navigation}) => {
      function renderHeader(){
          return(
         <View
