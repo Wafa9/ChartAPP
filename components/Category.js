@@ -26,15 +26,17 @@ const Category = (props) => {
              shadowOpacity: 0.08,
              shadowOffset:{ width: 5, height: 5 },}}>
 
-              <View />
+            <TouchableOpacity onPress={()=> {console.log('it wooooooooork foooofi');}} 
+            style={{marginLeft: SIZES.margin ,marginRight: SIZES.margin}}>
+
+            <View>
+             <View style={{...globalStyles.categoryPage,backgroundColor: backgroundColor,}}>
+            <View />
                <View style={{alignSelf:'center',marginTop:18}}>
                <FontAwesome5 name={props.title} size={20} color="white" />
                </View>
              </View>
-             <Text 
-             style={{textAlign:'center',fontFamily:'Montserrat_400Regular',fontSize:16, marginTop:5, alignSelf:'center'}}
-             >
-             {name}</Text>
+             <Text style={{...globalText.h3, alignSelf:'center'}}>{name}</Text>
            </View>
             </TouchableOpacity>
         )

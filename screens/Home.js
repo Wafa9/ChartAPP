@@ -4,35 +4,23 @@ import { COLORS, SIZES,FONTS} from '../styles/theme.js';
 import Category from '../components/Category.js';
 import CategorySlider from '../components/CategorySlider';
 import Transactions from '../components/Transactions';
+import globalText from '../styles/globalText';
+import globalStyles from '../styles/globalElements';
 
 
  const Home = ({navigation}) => {
      function renderHeader(){
          return(
-        <View
-         style = {{
-        flexDirection: 'row' ,
-        marginTop: 40,
-        marginBottom: 10,
-        paddingHorizontal:SIZES.padding,
-        alignItems : 'center'
-
-         }}
-         >
+        <View style = {globalStyles.homeHeader}>
          <View style={{flex:1}}>
-          <Text style={{...FONTS.h2, fontFamily:'Montserrat_700Bold'}} >Hello , Wafa</Text>
+          <Text style={{...globalText.h1, marginTop:40,}} >Hello , Wafa</Text>
          </View>
          {/* Nonfiction Button */}
-     </View>
+        </View>
          )}
 
     return (
-        <View 
-        style ={{
-            flex: 1,
-            backgroundColor: COLORS.white
-        }}
-        >
+        <View style ={{flex: 1,backgroundColor: COLORS.white}}>
             
             {/* HEADER */}
             {renderHeader()}
@@ -50,6 +38,7 @@ import Transactions from '../components/Transactions';
             <Category name='Goals' title ='star' style={ COLORS.pink}/>
             
          </ScrollView>
+
            </View>
           
             <CategorySlider/>

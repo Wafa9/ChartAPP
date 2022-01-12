@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         margin :10
     },
     whitecard:{
-        flex: 1,
+            flex: 1,
             backgroundColor: '#fbfbfb',
             marginTop: 100,
             borderTopRightRadius: 40,
