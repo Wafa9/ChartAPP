@@ -1,42 +1,23 @@
 import * as React from "react";
 import {View, Text, Image, StyleSheet, Button} from "react-native";
-import { COLORS, SIZES,FONTS} from '../styles/theme.js';
-import globalStyles from '../styles/global';
-
+// import styling
+import globalStyles from '../styles/globalElements.js';
+import globalText from '../styles/globalText';
+import { COLORS } from '../styles/theme.js';
 // import components
 import UserName from "../components/UserName";
 import FlatButton from "../components/Buttons";
 
-// import font
-// import AppLoading from 'expo-app-loading';
-// import {
-//   useFonts,
-//   Montserrat_100Thin,
-//   Montserrat_400Regular,
-//   Montserrat_700Bold,
-
-// } from '@expo-google-fonts/montserrat';
-
-// set the font size
-// let fontSize=24;
 
 
 
-const  ProfileScreen = () => { 
+const  ProfileScreen = ({ navigation }) => { 
 
-  // let[fontsLoaded, error] = useFonts({
-  // Montserrat_100Thin,
-  // Montserrat_400Regular,
-  // Montserrat_700Bold,
-  // });
-
-     Buttonfunc=()=>{/* here the screens */}
-
-  // if (!fontsLoaded) {
-  //   return <AppLoading />;
-  // } else {
+    Buttonfunc=()=>{/* here the screens */};
     return (
-      <View style={{ flex: 1, backgroundColor:COLORS.green,}}>
+      
+      <View style={{ flex: 1, backgroundColor:COLORS.green}}>
+    
 
       <View style={globalStyles.avatarcontainer}>
         <Image source={require('../assets/icons/Profile.png')} style={globalStyles.Avtrimg}/>
@@ -44,19 +25,19 @@ const  ProfileScreen = () => {
         <View style={globalStyles.whitecard}>
 
           <View style={{marginTop:50,paddingHorizontal:20,}}>
-          <Text style={globalStyles.h1}  >Name</Text>
+          <Text style={globalText.h1}  >Name</Text>
           <UserName/>
-          <Text style={globalStyles.h1} >Phone</Text>
-          <Text style={globalStyles.h2} >+966555555555</Text>
+          <Text style={globalText.h1} >Phone</Text>
+          <Text style={globalText.h2} >+966555555555</Text>
 
           <View style={{ marginTop:10,}}>
-          <Text style={globalStyles.h1} >Change info</Text>
-          <FlatButton text='Change the phone number' onPress={Buttonfunc}></FlatButton>
-          <FlatButton text='Change the name' onPress={Buttonfunc}></FlatButton>
+          <Text style={globalText.h1} >Change info</Text>
+          <FlatButton text='Change the phone number' onPress={() => navigation.push("changePhone")}></FlatButton>
+          <FlatButton text='Change the name' onPress={() => navigation.push("changeUsername")}></FlatButton>
           </View>
 
           <View style={{ marginTop:10,}}>
-          <Text style={globalStyles.h1} >Help</Text>
+          <Text style={globalText.h1} >Help</Text>
           <FlatButton text='Help center' onPress={Buttonfunc}></FlatButton>
           </View>
 

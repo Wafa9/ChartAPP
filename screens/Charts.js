@@ -2,14 +2,13 @@ import React from 'react'
 import { View, Text , Image , ScrollView} from 'react-native';
 import { COLORS, SIZES,FONTS} from '../styles/theme.js';
 import {LineChart} from "react-native-chart-kit";
-
-
+import globalText from '../styles/globalText';
 
 const Charts = () => {
     return(
         <View>
            <View style={{marginTop: 70}}>
-  <Text>Bezier Line Chart</Text>
+  <Text style={globalText.h2}>Bezier Line Chart</Text>
   <LineChart
     data={{
       labels: ["January", "February", "March", "April", "May", "June"],
