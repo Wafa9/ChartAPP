@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Text, View ,StyleSheet ,Image , FlatList, TouchableOpacity} from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler';
 import { COLORS, SIZES,FONTS} from '../styles/theme.js';
 import globalStyles from '../styles/globalElements';
 import globalText from '../styles/globalText';
@@ -16,7 +15,11 @@ export default function App(){
 return(
   <View
   >
-      <View style={{backgroundColor: COLORS.white,alignSelf:'center'}}>
+      <View style={{
+        backgroundColor: COLORS.white,
+       alignSelf:'center'
+        }}>
+      
        <FlatList 
         data={operation}
         disableVirtualization={false}
@@ -34,6 +37,7 @@ return(
           </View>
          )}}
        />
+       
       </View>
   </View>
 )

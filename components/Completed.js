@@ -6,8 +6,6 @@ import LottieView from "lottie-react-native";
 
 
 export default function  Completed ({ navigation }) {
-    
-
    
    return (
 
