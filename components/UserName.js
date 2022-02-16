@@ -14,7 +14,7 @@ const  UserName = () => {
 
   useEffect(()=>{
   //axios call
-   axiosInstance.get('/auth/email-verify').catch(err=>{console.log("err",err.response)});
+   //axiosInstance.get('/auth/email-verify').catch(err=>{console.log("err",err.response)});
   //fetch call
    fetch('http://192.168.8.150:8000/auth/login/', {
       method:'POST',

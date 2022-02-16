@@ -7,14 +7,32 @@ import { WP } from "../../utils/resources";
 import { COLORS } from "../../styles/theme";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
+import axiosInstance from "../../helpers/axiosInterceptor";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+
 
 const LoginScreen = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  
   const onLogin = () => {
     if (email != "" && password != "") {
-      props.navigation.navigate("TabStack");
+      axiosInstance.post('auth/login/', {
+      email,
+      password,
+    })
+    .then((res) => {
+      AsyncStorage.removeItem('token');
+      AsyncStorage.removeItem('user');
+      AsyncStorage.setItem('token', res.data.token);
+      AsyncStorage.setItem('user', JSON.stringify(res.data.user));
+      console.log(res)
+      
+    })
+    .catch((err) => {console.log("error")});
+    
     } else {
       Alert.alert("Fiance", "Email and Password is required !");
     }

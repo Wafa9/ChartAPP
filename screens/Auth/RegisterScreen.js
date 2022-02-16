@@ -14,14 +14,30 @@ import { WP } from "../../utils/resources";
 import { COLORS } from "../../styles/theme";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
+import axiosInstance from "../../helpers/axiosInterceptor";
 
 const RegisterScreen = (props) => {
-  const [name, setName] = useState("");
+  const [username, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const onRegister = () => {
     if (email != "" && password != "") {
-      props.navigation.navigate("TabStack");
+      axiosInstance
+      .post('auth/register/', {
+        email,
+        username,
+        password,
+        
+      })
+      .then((resp) => {
+        console.log('json start')
+        console.log(resp)
+        return resp.json()})
+      .then((data) =>{
+        console.log('json two')
+        console.log(data)
+      })
+      .catch((error) => {console.log("error")})
     } else {
       Alert.alert("Fiance", "Email and Password is required !");
     }
@@ -36,8 +52,8 @@ const RegisterScreen = (props) => {
           <Spacer vertical={WP("5%")} />
           <Input
             placeholder="Enter your name"
-            value={name}
-            label="Name"
+            value={username}
+            label="username"
             icon="account-box"
             onChangeText={(text) => {
               setName(text);
@@ -47,7 +63,7 @@ const RegisterScreen = (props) => {
           <Input
             placeholder="Enter your email"
             value={email}
-            label="Email"
+            label="email"
             icon="email"
             onChangeText={(text) => {
               setEmail(text);
@@ -57,7 +73,7 @@ const RegisterScreen = (props) => {
           <Input
             placeholder="Enter your password"
             value={password}
-            label="Password"
+            label="password"
             icon="lock"
             onChangeText={(text) => {
               setPassword(text);
