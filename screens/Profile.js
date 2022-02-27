@@ -32,7 +32,7 @@ const  ProfileScreen = ({ navigation }) => {
 
           <View style={{ marginTop:10,}}>
           <Text style={globalText.h1} >Change info</Text>
-          <FlatButton text='Change the phone number' onPress={() => navigation.push("changePhone")}></FlatButton>
+          <FlatButton text='Logout' onPress={() => navigation.push("Logout")}></FlatButton>
           <FlatButton text='Change the name' onPress={() => navigation.push("changeUsername")}></FlatButton>
           </View>
 

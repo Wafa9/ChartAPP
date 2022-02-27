@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, {useEffect, useContext} from "react";
 import { View, Text, Image, StyleSheet, Button } from "react-native";
 // import screens
 import Home from "../screens/Home";
@@ -8,8 +8,13 @@ import AddScreen from "../screens/Add";
 import Charts from "../screens/Charts";
 import ChangeUsername from "./ChangeUsername";
 import ChangePhone from "./ChangePhone";
+import Logout from "../screens/Auth/LogoutScreen";
 import Completed from "./Completed";
 import LoginScreen from "../screens/Auth/LoginScreen";
+import { GlobalContext } from '../context/provider';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {ActivityIndicator} from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
 // import bottom navigation
 import "react-native-gesture-handler";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -41,8 +46,8 @@ const ProfileStackScreen = () => {
         options={{ headerShown: false }}
       />
       <ProfileStack.Screen
-        name="changePhone"
-        component={ChangePhone}
+        name="Logout"
+        component={Logout}
         options={{ headerShown: false }}
       />
       <ProfileStack.Screen
@@ -57,7 +62,7 @@ const ProfileStackScreen = () => {
 const AuthStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Login"
+    initialRouteName="Login"
       screenOptions={{ headerShown: false }}
     >
       <Stack.Screen name="Login" component={LoginScreen} />
@@ -73,10 +78,23 @@ const HomeStack = () => {
       screenOptions={{ headerShown: false }}
     >
       <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="TabStack" component={TabStack} />
       <Stack.Screen name="Details" component={Details} />
     </Stack.Navigator>
   );
 };
+
+const LandingStack = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{ headerShown: false }}
+    >
+      <Stack.Screen name="TabStack" component={TabStack} />
+    </Stack.Navigator>
+  );
+};
+
+
 
 const TabStack = () => {
   return (
@@ -169,15 +187,49 @@ const TabStack = () => {
 };
 
 const NavigationBar = () => {
+
+  const {
+    authState: {isLoggedIn},
+  } = useContext(GlobalContext);
+
+  const [isAuthenticated, setIsAuthenticated] = React.useState(isLoggedIn);
+  const [authLoaded, setAuthLoaded] = React.useState(false);
+
+  const getUser = async () => {
+    try {
+      const token = await AsyncStorage.getItem('token');
+      if (token) {
+        setAuthLoaded(true);
+
+        setIsAuthenticated(true);
+      } else {
+        setAuthLoaded(true);
+
+        setIsAuthenticated(false);
+      }
+    } catch (error) {}
+  };
+  useEffect(() => {
+    getUser();
+    console.log(isLoggedIn)
+  }, [isLoggedIn]);
+
   return (
-    <Stack.Navigator
-      initialRouteName="AuthStack"
-      screenOptions={{ headerShown: false }}
-    >
-      <Stack.Screen name="AuthStack" component={AuthStack} />
-      <Stack.Screen name="HomeStack" component={HomeStack} />
-      <Stack.Screen name="TabStack" component={TabStack} />
-    </Stack.Navigator>
+   
+
+<>
+{authLoaded ? (
+    <NavigationContainer>
+
+    {isAuthenticated ? 
+   <LandingStack/>
+    :  
+    <AuthStack/>}
+    </NavigationContainer>
+) : (
+  <ActivityIndicator />
+)}
+</>
   );
 };
 

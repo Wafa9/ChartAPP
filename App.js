@@ -1,7 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
 import "react-native-gesture-handler";
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
@@ -12,6 +11,7 @@ import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import NavigationBar from "./components/NavigationBar";
+import GlobalProvider from "./context/provider";
 
 import {
   useFonts,
@@ -55,9 +55,9 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      <NavigationContainer>
+      <GlobalProvider>
         <NavigationBar />
-      </NavigationContainer>
+      </GlobalProvider>
     );
   }
 }

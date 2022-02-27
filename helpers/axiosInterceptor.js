@@ -4,6 +4,28 @@ import envs from '../config/env'
 
 let headers = {"Access-Control-Allow-Origin":'*'};
 
+async function getLocalToken() {
+  const token = await AsyncStorage.getItem('token');
+  return `Bearer ${token}`;
+}
+
+// Add a setToken method to the instance to dynamically add the latest token to the header after login, and save the token in the local Storage
+const setNewToken = (token) => {
+  instance.defaults.headers.Authorization = `Bearer ${token}`;
+  AsyncStorage.setItem('token', token);
+};
+
+async function refreshToken() {
+  // Instance is the axios instance created in current request.js
+  const token = await AsyncStorage.getItem('refresh_token');
+
+  const res = await axiosInstance.post('/auth/token/refresh/', {
+    refresh: token,
+  });
+  return res.data.access;
+}
+
+
 const axiosInstance = axios.create({
     baseURL:'http://192.168.8.150:8000/',
     headers,
@@ -46,6 +68,8 @@ axiosInstance.interceptors.request.use(
           }
         },
       );
+
+
       
 
 export default axiosInstance
