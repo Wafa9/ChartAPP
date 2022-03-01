@@ -55,7 +55,7 @@ const Home = ({ navigation }) => {
             title="money-bill-wave"
             style={COLORS.green}
             onPress={() => {
-              navigation.navigate("Details", { id: 2, name: "Income" });
+              navigation.navigate("Details", { id: 3, name: "Income" });
             }}
           />
           <Category
@@ -63,7 +63,7 @@ const Home = ({ navigation }) => {
             title="warehouse"
             style={COLORS.gray}
             onPress={() => {
-              navigation.navigate("Details", { id: 3, name: "Loans" });
+              navigation.navigate("Details", { id: 4, name: "Loans" });
             }}
           />
           <Category
@@ -71,7 +71,7 @@ const Home = ({ navigation }) => {
             title="star"
             style={COLORS.pink}
             onPress={() => {
-              navigation.navigate("Details", { id: 4, name: "Goals" });
+              navigation.navigate("Details", { id: 5, name: "Goals" });
             }}
           />
         </ScrollView>

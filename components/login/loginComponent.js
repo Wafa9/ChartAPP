@@ -91,7 +91,7 @@ const LoginComponent = ({
     <Button
       absolute
       onPress={() => {
-        props.navigation.navigate("Register");
+       navigate("Register");
       }}
       title="Sign Up"
     />
