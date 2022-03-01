@@ -20,7 +20,7 @@ const CustomButton = ({
       return colors.grey;
     }
     if (primary) {
-      return colors.pink;
+      return colors.green;
     }
     if (danger) {
       return colors.danger;
@@ -46,7 +46,7 @@ const CustomButton = ({
             style={{
               color: disabled ? 'black' : colors.white,
               paddingLeft: loading ? 5 : 0,
-              fontFamily: "LightItalic",
+              fontFamily: "Normal",
             }}>
             {loading ? 'Please wait...' : title}
           </Text>
@@ -72,17 +72,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
       },
     
-      textInput: {
-        flex: 1,
-        width: '100%',
-        fontFamily: "LightItalic",
-      },
-    
-      error: {
-        color: colors.danger,
-        paddingTop: 4,
-        fontSize: 12,
-      },
 })
 
 

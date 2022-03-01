@@ -38,6 +38,8 @@ const globalText = StyleSheet.create({
     padding: 2,
     margin: 2,
   },
+
+ 
 });
 
 export default globalText;

@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 import { COLORS, SIZES,FONTS} from './theme';
-let fontSize=24;
+import { WP } from "../utils/resources";
+import colors from "./colors";
 
 const globalStyles = StyleSheet.create({
 
@@ -22,13 +23,32 @@ const globalStyles = StyleSheet.create({
                 shadowColor: '#000',
                     shadowOpacity: 0.08,
                     shadowOffset:{width: 10, height: 10 }, },
+
+    profileWhitecard:{
+        flex: 1,
+            backgroundColor: '#fbfbfb',
+            marginTop: 50,
+            borderTopRightRadius: 40,
+            borderTopLeftRadius: 40,
+            padding: 10, 
+            shadowColor: '#000',
+            shadowOpacity: 0.1, },
+            avatarcontainer:{
+                height:80,
+                width:80,
+                top:10,
+                alignSelf:'center',
+                position:'absolute',
+                shadowColor: '#000',
+                    shadowOpacity: 0.08,
+                    shadowOffset:{width: 10, height: 10 }, },
  
             
     Avtrimg:{
                 width: '100%',
                 height: '100%',
                 borderRadius:10,
-                marginTop:40,
+                marginTop:60,
                 backgroundColor:'white'
               },
 
@@ -120,6 +140,27 @@ const globalStyles = StyleSheet.create({
             paddingTop:100,
             shadowColor: '#000',
             shadowOpacity: 0.1, },
+
+    absoluteText: {
+    position: "absolute",
+    bottom: WP("20%"),
+    alignSelf: "center",
+  },
+
+  wrapper: {
+    height: 42,
+
+    paddingHorizontal: 5,
+
+    paddingVertical: 13,
+
+    marginVertical: 5,
+    borderRadius: 4,
+
+  },
+
+ 
+ 
 
 
 

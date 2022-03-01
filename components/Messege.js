@@ -5,7 +5,8 @@ import {useEffect} from 'react';
 import {View, Text, TextInput, ActivityIndicator, StyleSheet} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import colors from '../styles/colors';
-
+import globalText from '../styles/globalText';
+import globalStyles from '../styles/globalElements';
 
 const Message = ({
   message,
@@ -38,7 +39,7 @@ const Message = ({
     <>
       {userDismissed ? null : (
         <TouchableOpacity
-          style={[styles.wrapper, {backgroundColor: getBgColor()}]}>
+          style={[globalStyles.wrapper, {backgroundColor: getBgColor()}]}>
           <View
             style={{
               flexDirection: 'row',
@@ -57,6 +58,7 @@ const Message = ({
                 <Text
                   style={{
                     color: colors.white,
+                    fontFamily: "Normal"
                   }}>
                   Retry
                 </Text>
@@ -85,33 +87,7 @@ const Message = ({
 };
 
 const styles = StyleSheet.create({
-    wrapper: {
-        height: 42,
     
-        paddingHorizontal: 5,
-    
-        paddingVertical: 13,
-    
-        marginVertical: 5,
-        borderRadius: 4,
-        // alignItems: 'center',
-        // justifyContent: 'space-evenly',
-      },
-    
-      loaderSection: {
-        flexDirection: 'row',
-      },
-    
-      textInput: {
-        flex: 1,
-        width: '100%',
-      },
-    
-      error: {
-        color: colors.danger,
-        paddingTop: 4,
-        fontSize: 12,
-      },
 })
 
 export default Message;

@@ -13,7 +13,8 @@ import FlatButton from "../components/Buttons";
 
 const  ProfileScreen = ({ navigation }) => { 
 
-    Buttonfunc=()=>{/* here the screens */};
+
+
     return (
       
       <View style={{ flex: 1, backgroundColor:COLORS.green}}>
@@ -22,23 +23,24 @@ const  ProfileScreen = ({ navigation }) => {
       <View style={globalStyles.avatarcontainer}>
         <Image source={require('../assets/icons/Profile.png')} style={globalStyles.Avtrimg}/>
       </View>
-        <View style={globalStyles.whitecard}>
+     
+      <View style={{marginTop:160, alignItems:"center"}}>
+      <UserName/>
+      <Text style={globalText.h2} >email</Text>
+      </View>
+        <View style={globalStyles.profileWhitecard}>
 
           <View style={{marginTop:50,paddingHorizontal:20,}}>
-          <Text style={globalText.h1}  >Name</Text>
-          <UserName/>
-          <Text style={globalText.h1} >Phone</Text>
-          <Text style={globalText.h2} >+966555555555</Text>
+         
 
           <View style={{ marginTop:10,}}>
-          <Text style={globalText.h1} >Change info</Text>
+          <Text style={globalText.h1} >Settings</Text>
           <FlatButton text='Logout' onPress={() => navigation.push("Logout")}></FlatButton>
-          <FlatButton text='Change the name' onPress={() => navigation.push("changeUsername")}></FlatButton>
           </View>
 
           <View style={{ marginTop:10,}}>
           <Text style={globalText.h1} >Help</Text>
-          <FlatButton text='Help center' onPress={Buttonfunc}></FlatButton>
+          <FlatButton text='Help center' onPress={() => navigation.push("Logout")}></FlatButton>
           </View>
 
           </View>
