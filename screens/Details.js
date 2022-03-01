@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -22,12 +22,25 @@ const width = Dimensions.get("screen").width;
 
 export default function Details({ route, navigation }) {
   const { id } = route.params;
-  const { name } = route.params;
+  const { name , chartdata} = route.params;
 
   const [location, setLocation] = useState("");
   const [openDropDown, setOpenDropDown] = useState(false);
+  const [chartAmountData, setChartAmountData] = useState();
+
+  useEffect(() => {
+    let aarr = [];
+      chartdata?.map((itemmm) => {
+          let amount = parseFloat(itemmm?.amount);
+          aarr.push(amount);
+      });
+      setChartAmountData(aarr);
+  }, []);
 
   console.log(id);
+  console.log("Chart Data", chartdata);
+
+  console.log("Data ", chartAmountData)
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={COLORS.brown} />
@@ -77,12 +90,12 @@ export default function Details({ route, navigation }) {
             );
           })}
 
-        <LineChart
+        {chartAmountData?.length > 0 && <LineChart
           data={{
             labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct","Nov","Dec"],
             datasets: [
               {
-                data: [20, 25, 28, 60, 80, 60, 82, 50, 83, 86, 50],
+                data: chartAmountData,
                 strokeWidth: 2,
               },
             ],
@@ -101,7 +114,7 @@ export default function Details({ route, navigation }) {
             },
           }}
           style={styles.lineChart}
-        />
+        />}
 
         <Text>
           {data.map((item) => {

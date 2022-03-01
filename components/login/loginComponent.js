@@ -98,11 +98,7 @@ const LoginComponent = ({
     <Button
       absolute
       onPress={() => {
-<<<<<<< HEAD
-       navigate("Register");
-=======
         navigate("Register")
->>>>>>> 8b314cac3176edccbabbec5f79224ffaf62f2e0c
       }}
       title="Sign Up"
     />
