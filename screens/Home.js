@@ -15,6 +15,67 @@ import globalText from "../styles/globalText";
 import globalStyles from "../styles/globalElements";
 
 const Home = ({ navigation }) => {
+
+
+  const [ChartData, setChartData] = useState([]);
+  const [BalanceData, setBalanceData] = useState([]);
+  const [GoalsData, setGoalsData] = useState([]);
+  const [SavingsData, setSavingsData] = useState([]);
+  const [IncomeData, setIncomeData] = useState([]);
+  const [LoansData, setLoansData] = useState([]);
+
+
+  const getData = () => {
+    axios.get('https://621e3a36849220b1fc93a441.mockapi.io/chartap/transactions')
+  .then(function (response) {
+    // handle success
+    console.log(response);
+    setChartData(response.data);
+    let data = response.data;
+    let balance =  data?.filter((vl) => {
+      return vl?.type == "Balance"
+    });
+
+    setBalanceData(balance)
+
+    let savings =  data?.filter((vl) => {
+      return vl?.type == "Savings"
+    })
+
+    setSavingsData(savings);
+
+    let loans =  data?.filter((vl) => {
+      return vl?.type == "Loans"
+    });
+    setLoansData(loans);
+
+    let income =  data?.filter((vl) => {
+      return vl?.type == "Income"
+    });
+    setIncomeData(income);
+
+    let goals =  data?.filter((vl) => {
+      return vl?.type == "Goals"
+    })
+
+    setGoalsData(goals);
+
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  
+  }
+
+  useEffect(() => {
+    getData();
+  }, [])
+
+  console.log("Chart Data", ChartData);
+
+
+
   function renderHeader() {
     return (
       <View style={globalStyles.homeHeader}>
