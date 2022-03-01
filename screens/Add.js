@@ -13,7 +13,8 @@ const AddScreen =()=>{
             alert("Please Enter all details");
             return;
         }
-        axios.post('http://192.168.8.143:8000/transactions/', {
+        // 'http://192.168.8.143:8000/transactions/'
+        axios.post('https://621e3a36849220b1fc93a441.mockapi.io/chartap/transactions', {
            
                 "id": "1",
                 "type": val?.type,
