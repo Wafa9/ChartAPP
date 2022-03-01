@@ -20,6 +20,7 @@ const LoginComponent = ({
   onChange,
   loading,
   onSubmit,
+  
 }) => {
   const {navigate} = useNavigation();
   const [isSecureEntry, setIsSecureEntry] = useState(true);
@@ -28,6 +29,12 @@ const LoginComponent = ({
     <ScrollView style={globalStyles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="white" />
       <View style={globalStyles.subContainer}>
+        <Image
+        height={100}
+        width={100}
+        source={require('../../assets/images/logo.png')}
+        style={globalStyles.logoImage}
+      />
         <Spacer vertical={WP("5%")} />
         <Text style={{ ...globalText.h1, alignSelf: "center" }}>Login</Text>
         {justSignedUp && (
@@ -45,7 +52,7 @@ const LoginComponent = ({
             />
           )}
           {error?.error && <Message danger onDismiss message={error?.error} />}
-        <Spacer vertical={WP("5%")} />
+      
         <Inputs
             label="Email"
             iconPosition="right"
@@ -91,7 +98,11 @@ const LoginComponent = ({
     <Button
       absolute
       onPress={() => {
+<<<<<<< HEAD
        navigate("Register");
+=======
+        navigate("Register")
+>>>>>>> 8b314cac3176edccbabbec5f79224ffaf62f2e0c
       }}
       title="Sign Up"
     />
@@ -100,5 +111,3 @@ const LoginComponent = ({
 };
 
 export default LoginComponent;
-
-//props.navigation.navigate("Register");

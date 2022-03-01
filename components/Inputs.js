@@ -38,7 +38,7 @@ const Inputs = ({
   };
   return (
     <View style={globalText.h2}>
-      {label && <Text style={globalText.h1}>{label}</Text>}
+      {label && <Text style={globalText.h3}>{label}</Text>}
 
       <View
         style={[

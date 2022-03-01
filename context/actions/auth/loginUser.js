@@ -1,4 +1,4 @@
-import AsyncStorageLib from '@react-native-async-storage/async-storage';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   LOGIN_FAIL,
@@ -6,6 +6,7 @@ import {
   LOGIN_SUCCESS,
 } from '../../../constants/actionType';
 import axiosInstance from '../../../helpers/axiosInterceptor';
+import UserName from '../../../components/UserName';
 
 export default ({password, email}) => (dispatch) => {
   dispatch({
@@ -18,7 +19,6 @@ export default ({password, email}) => (dispatch) => {
     })
     .then((res) => {
         let len = res.data.tokens
-        let tokens = res.data.tokens
         let tokenArr = len.split(',')
         let ref=tokenArr[0]
         let acc=tokenArr[1]
@@ -26,8 +26,7 @@ export default ({password, email}) => (dispatch) => {
         let access= acc.slice(12,240)
         AsyncStorage.setItem('token', access);
         AsyncStorage.setItem('refresh_token', refresh);
-        let r=AsyncStorage.getItem('token')
-        console.log(r)
+        
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data,

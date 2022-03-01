@@ -4,7 +4,7 @@ import {
     REGISTER_SUCCESS,
     CLEAR_AUTH_STATE,
   } from '../../../constants/actionType';
-  import axiosInstance from '../../../helpers/axiosInstance';
+  import axiosInstance from '../../../helpers/axiosInterceptor';
   
   export const clearAuthState = () => (dispatch) => {
     dispatch({
@@ -21,13 +21,14 @@ import {
       type: REGISTER_LOADING,
     });
     axiosInstance
-      .post('auth/register', {
+      .post('auth/register/', {
         email,
         username,
         password,
         
       })
       .then((res) => {
+        console.log("called")
         dispatch({
           type: REGISTER_SUCCESS,
           payload: res.data,

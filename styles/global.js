@@ -16,7 +16,7 @@ const globalStyles = StyleSheet.create({
   },
   avatarcontainer: {
     height: 80,
-    width: 80,
+    width: 200,
     top: 10,
     alignSelf: "center",
     position: "absolute",
@@ -76,6 +76,13 @@ const globalStyles = StyleSheet.create({
     position: "absolute",
     bottom: WP("20%"),
     alignSelf: "center",
+  },
+
+  logoImage: {
+    height: 200,
+    width: 200,
+    alignSelf: 'center',
+    marginTop: 50,
   },
 });
 
