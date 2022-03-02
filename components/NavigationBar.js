@@ -158,7 +158,7 @@ const TabStack = () => {
           tabBarIcon: ({ focused }) => (
             <View style={{ position: "absolute", top: "50%" }}>
               <AntDesign
-                name="calendar"
+                name="barcode"
                 size={24}
                 color={focused ? "black" : "gray"}
               />

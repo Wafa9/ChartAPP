@@ -8,6 +8,7 @@ export const COLORS = {
     pink: "#d99e96" ,
     gray: "#383e42",
     white: "#f5f7fc",
+    green10:"#C4DAD6",
     gray10: "#E5E5E5",
     gray20: "#CCCCCC",
     gray30: "#A1A1A1",

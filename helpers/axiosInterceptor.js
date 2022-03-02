@@ -60,8 +60,22 @@ axiosInstance.interceptors.request.use(
           }
       
           if (error.response.status === 403) {
-            console.log("axios error")
-          } else {
+            
+              return refreshToken()
+                .then(access => {
+                  setNewToken(access);
+                  config.headers['Authorization'] = `Bearer ${access}`;
+                  return axiosInstance(config);
+                })
+                .catch(error => {
+                  logOutUserLocal(store.dispatch);
+                })
+                .finally(() => {
+                  isRefreshing = false;
+                });
+          } 
+          
+          else {
             return new Promise((resolve, reject) => {
               reject(error);
             });

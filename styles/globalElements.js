@@ -96,6 +96,24 @@ const globalStyles = StyleSheet.create({
                   },
       },
 
+      codesContainer:{ 
+               
+        padding: 6,
+        marginTop:6,
+        backgroundColor: COLORS.green10,
+        borderRadius:SIZES.radius,
+        flexDirection:"row",
+        justifyContent:"space-between",
+        alignItems:"center",
+        
+        shadowColor: '#000',
+                    shadowOpacity: 0.06,
+                    shadowOffset:{
+                      width: 5,
+                      height: 5
+                    },
+        },
+
     homeHeader:{
         flexDirection: 'row' ,
         marginTop: 40,
