@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {
   View,
   Text,
@@ -13,8 +13,66 @@ import CategorySlider from "../components/CategorySlider";
 import Transactions from "../components/Transactions";
 import globalText from "../styles/globalText";
 import globalStyles from "../styles/globalElements";
+import axios from 'axios';
 
 const Home = ({ navigation }) => {
+  const [ChartData, setChartData] = useState([]);
+  const [BalanceData, setBalanceData] = useState([]);
+  const [GoalsData, setGoalsData] = useState([]);
+  const [SavingsData, setSavingsData] = useState([]);
+  const [IncomeData, setIncomeData] = useState([]);
+  const [LoansData, setLoansData] = useState([]);
+
+
+  const getData = () => {
+    axios.get('https://621e3a36849220b1fc93a441.mockapi.io/chartap/transactions')
+  .then(function (response) {
+    // handle success
+    console.log(response);
+    setChartData(response.data);
+    let data = response.data;
+    let balance =  data?.filter((vl) => {
+      return vl?.type == "Balance"
+    });
+
+    setBalanceData(balance)
+
+    let savings =  data?.filter((vl) => {
+      return vl?.type == "Savings"
+    })
+
+    setSavingsData(savings);
+
+    let loans =  data?.filter((vl) => {
+      return vl?.type == "Loans"
+    });
+    setLoansData(loans);
+
+    let income =  data?.filter((vl) => {
+      return vl?.type == "Income"
+    });
+    setIncomeData(income);
+
+    let goals =  data?.filter((vl) => {
+      return vl?.type == "Goals"
+    })
+
+    setGoalsData(goals);
+
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  
+  }
+
+  useEffect(() => {
+    getData();
+  }, [])
+
+  console.log("Chart Data", ChartData);
+
   function renderHeader() {
     return (
       <View style={globalStyles.homeHeader}>
@@ -39,7 +97,7 @@ const Home = ({ navigation }) => {
             title="money-check-alt"
             style={COLORS.brown}
             onPress={() => {
-              navigation.navigate("Details", { id: 1, name: "Balance" });
+              navigation.navigate("Details", { id: 1, name: "Balance", chartdata : BalanceData });
             }}
           />
           <Category
@@ -47,7 +105,7 @@ const Home = ({ navigation }) => {
             title="donate"
             style={COLORS.pink}
             onPress={() => {
-              navigation.navigate("Details", { id: 2, name: "Saving" });
+              navigation.navigate("Details", { id: 2, name: "Saving", chartdata : SavingsData });
             }}
           />
           <Category
@@ -55,7 +113,7 @@ const Home = ({ navigation }) => {
             title="money-bill-wave"
             style={COLORS.green}
             onPress={() => {
-              navigation.navigate("Details", { id: 2, name: "Income" });
+              navigation.navigate("Details", { id: 3, name: "Income", chartdata : IncomeData });
             }}
           />
           <Category
@@ -63,7 +121,7 @@ const Home = ({ navigation }) => {
             title="warehouse"
             style={COLORS.gray}
             onPress={() => {
-              navigation.navigate("Details", { id: 3, name: "Loans" });
+              navigation.navigate("Details", { id: 4, name: "Loans", chartdata : LoansData });
             }}
           />
           <Category
@@ -71,7 +129,7 @@ const Home = ({ navigation }) => {
             title="star"
             style={COLORS.pink}
             onPress={() => {
-              navigation.navigate("Details", { id: 4, name: "Goals" });
+              navigation.navigate("Details", { id: 5, name: "Goals", chartdata : GoalsData });
             }}
           />
         </ScrollView>

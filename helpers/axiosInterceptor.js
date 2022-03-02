@@ -27,7 +27,7 @@ async function refreshToken() {
 
 
 const axiosInstance = axios.create({
-    baseURL:'http://192.168.8.150:8000/',
+    baseURL:'http://192.168.8.143:8000/',
     headers,
 
 }
