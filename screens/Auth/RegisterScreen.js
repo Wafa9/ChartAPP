@@ -79,7 +79,7 @@ const RegisterScreen = (props) => {
       Object.values(errors).every((item) => !item)
     ) {
       register(form)(authDispatch)((response) => {
-        navigate("Login", {data: response});
+        navigate("EmailSent");
       });
     }
   };

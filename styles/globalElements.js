@@ -177,6 +177,21 @@ const globalStyles = StyleSheet.create({
 
   },
 
+  container:{
+    backgroundColor:"white",
+    padding:50,
+    flex:1,
+},
+
+btn:{
+    margin:10,
+    backgroundColor:"white",
+    padding:10,
+    borderRadius:10,
+    alignItems:'center',
+
+},
+
  
  
 

@@ -35,8 +35,7 @@ const LoginComponent = ({
         source={require('../../assets/images/logo.png')}
         style={globalStyles.logoImage}
       />
-        <Spacer vertical={WP("5%")} />
-        <Text style={{ ...globalText.h1, alignSelf: "center" }}>Login</Text>
+        <Text style={{ ...globalText.h1, alignSelf: "center",color:COLORS.pink }}>Login </Text>
         {justSignedUp && (
             <Message
               onDismiss={() => {}}
@@ -82,7 +81,7 @@ const LoginComponent = ({
               onChange({name: 'password', value});
             }}
           />
-        <Spacer vertical={WP("5%")} />
+  
         <CustomButton
             disabled={loading}
             onPress={onSubmit}
@@ -92,16 +91,7 @@ const LoginComponent = ({
           />
       </View>
     </ScrollView>
-    <View style={globalStyles.absoluteText}>
-      <Text style={globalText.labelText}>Create new account</Text>
-    </View>
-    <Button
-      absolute
-      onPress={() => {
-        navigate("Register")
-      }}
-      title="Sign Up"
-    />
+    
   </>
   );
 };

@@ -15,6 +15,8 @@ import { GlobalContext } from '../context/provider';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {ActivityIndicator} from 'react-native';
 import { NavigationContainer } from "@react-navigation/native";
+import WelcomeScreen from "../screens/Auth/Welcome";
+import EmailSentScreen from "../screens/Auth/EmailSent";
 // import bottom navigation
 import "react-native-gesture-handler";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -62,11 +64,13 @@ const ProfileStackScreen = () => {
 const AuthStack = () => {
   return (
     <Stack.Navigator
-    initialRouteName="Login"
+    initialRouteName="Welcome"
       screenOptions={{ headerShown: false }}
     >
+      <Stack.Screen name="Welcome" component={WelcomeScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
+      <Stack.Screen name="EmailSent" component={EmailSentScreen} />
     </Stack.Navigator>
   );
 };

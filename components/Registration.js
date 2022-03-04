@@ -9,6 +9,7 @@ import Message from './Messege';
 import globalStyles from '../styles/global';
 import globalText from '../styles/globalText';
 import Button from './Button';
+import { COLORS } from '../styles/theme';
 
 const RegisterComponent = ({
   onSubmit,
@@ -33,7 +34,7 @@ const RegisterComponent = ({
         source={require('./../assets/images/logo.png')}
         style={globalStyles.logoImage}
       />
-          <Text style={{ ...globalText.h1, alignSelf: "center" }}>Sign Up</Text>
+          <Text style={{ ...globalText.h1, alignSelf: "center",color:COLORS.pink }}>Sign up </Text>
         
           {error?.error && (
             <Message retry danger retryFn={onSubmit} message={error?.error} />
@@ -88,16 +89,6 @@ const RegisterComponent = ({
         </View>
         </ScrollView>
 
-        <View style={globalStyles.absoluteText}>
-        <Text style={globalText.labelText}>Already have an account? </Text>
-      </View>
-      <Button
-        absolute
-        onPress={() => {
-          navigate("Login");
-        }}
-        title="Login"
-      />
     
    
     </>

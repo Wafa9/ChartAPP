@@ -79,11 +79,31 @@ const globalStyles = StyleSheet.create({
   },
 
   logoImage: {
-    height: 200,
-    width: 200,
+    height: 150,
+    width: 150,
     alignSelf: 'center',
-    marginTop: 50,
+    marginTop: 20,
   },
+
+  welcomeImage: {
+    height: 300,
+    width: 300,
+    alignSelf: 'center',
+    marginBottom:70,
+    marginTop:70,
+   
+  },
+
+  logo2Image: {
+    height: 80,
+    width: 80,
+    alignSelf: 'center',
+    marginTop:50,
+   
+  },
+
 });
+
+
 
 export default globalStyles;
