@@ -30,9 +30,9 @@ const WelcomeScreen = (props) => {
         style={globalStyles.logo2Image}
       />
 
-        <Text style={{color:COLORS.gray50,alignSelf:'center', fontFamily:"Normal", fontSize:15,}}>Welcome to </Text>
-        <Text style={{color:COLORS.gray50,alignSelf:'center', fontFamily:"Bold", fontSize:25,}}>Halalah </Text>
-        <Text style={{color:COLORS.gray50,alignSelf:'center', fontFamily:"Normal", fontSize:15,}}>Your personal finance manager</Text>
+        <Text style={{color:COLORS.gray50,alignSelf:'center', fontFamily:"Normal", fontSize:12,}}>Welcome to </Text>
+        <Text style={{color:COLORS.gray50,alignSelf:'center', fontFamily:"Bold", fontSize:22,}}>Halalah </Text>
+        <Text style={{color:COLORS.gray50,alignSelf:'center', fontFamily:"Normal", fontSize:12,}}>Your personal finance manager</Text>
 
        
 

@@ -86,8 +86,8 @@ const globalStyles = StyleSheet.create({
   },
 
   welcomeImage: {
-    height: 300,
-    width: 300,
+    height: 250,
+    width: 250,
     alignSelf: 'center',
     marginBottom:70,
     marginTop:70,
@@ -95,8 +95,8 @@ const globalStyles = StyleSheet.create({
   },
 
   logo2Image: {
-    height: 80,
-    width: 80,
+    height: 70,
+    width: 70,
     alignSelf: 'center',
     marginTop:50,
    
